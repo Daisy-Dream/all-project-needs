@@ -1,0 +1,17 @@
+//
+//  MyFree.pch
+//  MyFreeMall
+//
+//  Created by boundlessocean on 16/9/1.
+//  Copyright © 2016年 GXCloud. All rights reserved.
+//
+
+#ifndef MyFree_pch
+#define MyFree_pch
+
+#import "MFConst.h"
+#import "MFMacros.h"
+#import "MFCategory.h"
+#import "MFEnum.h"
+#import "Masonry.h"
+#endif /* MyFree_pch */

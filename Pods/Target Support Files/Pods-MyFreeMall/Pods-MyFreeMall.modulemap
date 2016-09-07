@@ -1,0 +1,6 @@
+framework module Pods_MyFreeMall {
+  umbrella header "Pods-MyFreeMall-umbrella.h"
+
+  export *
+  module * { export * }
+}
