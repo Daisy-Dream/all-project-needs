@@ -62,7 +62,7 @@
     // 判断 gestureRecognizer 方向 translatedPoint.x < 0 向右 > 0 向左
     CGPoint translatedPoint = [gestureRecognizer translationInView:self.view];
     
-    if (_canDragBack && translatedPoint.x > 0 && self.navigationController.viewControllers.count > 1 ) {
+    if (_canDragBack && translatedPoint.x > 0 && self.viewControllers.count > 1 ) {
         return YES;
     }else{
         return NO;

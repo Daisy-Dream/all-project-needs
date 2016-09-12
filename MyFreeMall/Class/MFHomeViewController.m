@@ -8,6 +8,7 @@
 
 #import "MFHomeViewController.h"
 #import "MFTopAdvanceView.h"
+#import "MFMineViewController.h"
 @interface MFHomeViewController ()
 
 @end
@@ -17,17 +18,14 @@
 
     [super viewDidLoad];
     self.view.backgroundColor = randomColor;
-    UITextField *feild = [[UITextField alloc] init];
-    feild.backgroundColor = randomColor;
-    feild.layer.borderColor = LineColor.CGColor;
-    feild.layer.borderWidth = 0.5;
     
-    [self.view addSubview:feild];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(100, 100, 100, 100);
+    button.backgroundColor = randomColor;
+    [button handleWithBlock:^(id sender) {
+        [self.navigationController pushViewController:[[MFMineViewController alloc] init] animated:YES];
+    } controlEvent:UIControlEventTouchUpInside];
     
-    [feild mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(100);
-        make.top.mas_equalTo(350);
-        make.size.mas_equalTo(CGSizeMake(100, 30));
-    }];
+    [self.view addSubview:button];
 }
 @end

@@ -13,6 +13,14 @@
 @end
 @implementation MFBaseViewController
 
+- (instancetype)init{
+
+    if (self = [super init]) {
+        _canDragBack = YES;
+    }
+    return self;
+}
+
 -(void)viewDidLoad{
     
     [super viewDidLoad];
