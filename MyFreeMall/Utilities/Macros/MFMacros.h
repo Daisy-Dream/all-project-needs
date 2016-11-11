@@ -142,17 +142,70 @@
 
 //单例化 一个类
 
-#define MF_SINGLETION(__clazz) \
-+ (__clazz *)sharedInstance;
+#define singleH(name) +(instancetype)share##name;
 
-#define MF_DEF_SINGLETION(__clazz) \
-+ (__clazz *)sharedInstance \
+#if __has_feature(objc_arc)
+
+#define singleM(name) static id _instance;\
++(instancetype)allocWithZone:(struct _NSZone *)zone\
 {\
-static dispatch_once_t once; \
-static __clazz * __singletion;\
-dispatch_once(&once,^{__singletion = [[__clazz alloc] init];});\
-return __singletion;\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+_instance = [super allocWithZone:zone];\
+});\
+return _instance;\
+}\
+\
++(instancetype)share##name\
+{\
+return [[self alloc]init];\
+}\
+-(id)copyWithZone:(NSZone *)zone\
+{\
+return _instance;\
+}\
+\
+-(id)mutableCopyWithZone:(NSZone *)zone\
+{\
+return _instance;\
 }
+#else
+#define singleM static id _instance;\
++(instancetype)allocWithZone:(struct _NSZone *)zone\
+{\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+_instance = [super allocWithZone:zone];\
+});\
+return _instance;\
+}\
+\
++(instancetype)shareTools\
+{\
+return [[self alloc]init];\
+}\
+-(id)copyWithZone:(NSZone *)zone\
+{\
+return _instance;\
+}\
+-(id)mutableCopyWithZone:(NSZone *)zone\
+{\
+return _instance;\
+}\
+-(oneway void)release\
+{\
+}\
+\
+-(instancetype)retain\
+{\
+return _instance;\
+}\
+\
+-(NSUInteger)retainCount\
+{\
+return MAXFLOAT;\
+}
+#endif
 
 #endif /* MFMacros_h */
 
