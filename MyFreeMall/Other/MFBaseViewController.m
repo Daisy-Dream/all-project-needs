@@ -46,12 +46,12 @@
     if (!isDealloc) {
         //添加对象
         if (str.length > 0) {
-            [[MFUnDeallocModels sharedInstance] addContrllerName:str andFloor:floor];
+            [[MFUnDeallocModels shareMFUnDeallocModels] addContrllerName:str andFloor:floor];
         }
     } else {
         //销毁对象
         if (str.length > 0) {
-            [[MFUnDeallocModels sharedInstance] deallocControllerName:str andFloor:floor];
+            [[MFUnDeallocModels shareMFUnDeallocModels] deallocControllerName:str andFloor:floor];
         }
     }
 }

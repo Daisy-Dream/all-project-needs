@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface MFUnDeallocModels : NSObject
-
-MF_SINGLETION(MFUnDeallocModels)
+singleH(MFUnDeallocModels)
 
 @property (strong, nonatomic) NSMutableArray *unDealocModels;
 

@@ -137,6 +137,7 @@
 		37E5138D1D797B4E00D88CC1 /* MFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFNavigationController.h; sourceTree = "<group>"; };
 		37E5138E1D797B4E00D88CC1 /* MFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFNavigationController.m; sourceTree = "<group>"; };
 		7D6F80F699AB5252FF1CBAC2 /* Pods_MyFreeMall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFreeMall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E3F5DBE1DDEADC2003D895A /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +287,7 @@
 				372AFB601D7D6181008C9BC6 /* NSTimer+Blcok.m */,
 				379CE1DA1D7EC87400948F7A /* MBProgressHUD+MF.h */,
 				379CE1DB1D7EC87400948F7A /* MBProgressHUD+MF.m */,
+				8E3F5DBE1DDEADC2003D895A /* Header.h */,
 			);
 			path = Categroy;
 			sourceTree = "<group>";

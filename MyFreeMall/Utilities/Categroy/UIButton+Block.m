@@ -56,8 +56,7 @@ static char kActionKey;
                           self.bounds.size.width + leftEdge.floatValue + rightEdge.floatValue,
                           self.bounds.size.height + topEdge.floatValue + bottomEdge.floatValue);
     }
-    else
-    {
+    else{
         return self.bounds;
     }
 }

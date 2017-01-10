@@ -9,8 +9,7 @@
 #import "MFUnDeallocModels.h"
 
 @implementation MFUnDeallocModels
-MF_DEF_SINGLETION(MFUnDeallocModels)
-
+singleM(MFUnDeallocModels)
 - (NSMutableArray *)unDealocModels
 {
     if (!_unDealocModels) {
@@ -23,34 +22,34 @@ MF_DEF_SINGLETION(MFUnDeallocModels)
 {
     if (num > 1) {
         //首页不加入
-        if ([[MFUnDeallocModels sharedInstance].unDealocModels isKindOfClass:[NSMutableArray class]]) {
-            [[MFUnDeallocModels sharedInstance].unDealocModels addObject:controllerName];
+        if ([[MFUnDeallocModels shareMFUnDeallocModels].unDealocModels isKindOfClass:[NSMutableArray class]]) {
+            [[MFUnDeallocModels shareMFUnDeallocModels].unDealocModels addObject:controllerName];
         } else {
-            [MFUnDeallocModels sharedInstance].unDealocModels = [NSMutableArray arrayWithArray:[MFUnDeallocModels sharedInstance].unDealocModels];
-            [[MFUnDeallocModels sharedInstance].unDealocModels addObject:controllerName];
+            [MFUnDeallocModels shareMFUnDeallocModels].unDealocModels = [NSMutableArray arrayWithArray:[MFUnDeallocModels shareMFUnDeallocModels].unDealocModels];
+            [[MFUnDeallocModels shareMFUnDeallocModels].unDealocModels addObject:controllerName];
         }
     }
 }
 
 - (void)deallocControllerName:(NSString *)controllerName andFloor:(NSInteger)num
 {
-    NSMutableArray *tempArray = [NSMutableArray arrayWithArray:[MFUnDeallocModels sharedInstance].unDealocModels];
+    NSMutableArray *tempArray = [NSMutableArray arrayWithArray:[MFUnDeallocModels shareMFUnDeallocModels].unDealocModels];
     for (NSString *ctlString in tempArray) {
         if ([ctlString isEqualToString:controllerName]) {
             NSInteger ctlIndex = [tempArray indexOfObjectIdenticalTo:ctlString];
-            if ([[MFUnDeallocModels sharedInstance].unDealocModels isKindOfClass:[NSMutableArray class]]) {
-                [[MFUnDeallocModels sharedInstance].unDealocModels removeObjectAtIndex:ctlIndex];
+            if ([[MFUnDeallocModels shareMFUnDeallocModels].unDealocModels isKindOfClass:[NSMutableArray class]]) {
+                [[MFUnDeallocModels shareMFUnDeallocModels].unDealocModels removeObjectAtIndex:ctlIndex];
             } else {
-                [MFUnDeallocModels sharedInstance].unDealocModels = [NSMutableArray arrayWithArray:[MFUnDeallocModels sharedInstance].unDealocModels];
-                [[MFUnDeallocModels sharedInstance].unDealocModels removeObjectAtIndex:ctlIndex];
+                [MFUnDeallocModels shareMFUnDeallocModels].unDealocModels = [NSMutableArray arrayWithArray:[MFUnDeallocModels shareMFUnDeallocModels].unDealocModels];
+                [[MFUnDeallocModels shareMFUnDeallocModels].unDealocModels removeObjectAtIndex:ctlIndex];
             }
             break;
         }
     }
-    if ([MFUnDeallocModels sharedInstance].unDealocModels.count > 0) {
+    if ([MFUnDeallocModels shareMFUnDeallocModels].unDealocModels.count > 0) {
         if (num == 1) {
             //回到首层打印泄露
-            MFLog(@"内存泄露对象: %@",[MFUnDeallocModels sharedInstance].unDealocModels);
+            MFLog(@"内存泄露对象: %@",[MFUnDeallocModels shareMFUnDeallocModels].unDealocModels);
         }
     }
 }
